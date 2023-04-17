@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function strChange(){
+        let str = 'jsonp({"name":"jack","name":"asdasd"})'
+        let firstIndex = str.indexOf('(')
+        let lastIndex = str.lastIndexOf(')')
+        let value = str.substring(firstIndex+1,lastIndex)
+
+       let str2 = 'jsonp({"name":"jack"})'
+
+       console.log(JSON.stringify(str2));
+        }
+
+        function getHugeImage(){
+            let src = "//img12.360buyimg.com/n1/s450x450_jfs/t1/188041/9/28595/24477/63469204E0e155b4c/c18bd2097196ccfa.jpg"
+            let arr = src.split("/")
+            console.log(arr);
+            arr[3] = "n0"
+            arr[4] = "jfs"
+            console.log(arr);
+            let src2 = arr.join("/")
+            console.log(src2);
+        }
+        getHugeImage()
+      
+ 
+       
+  
+    </script>
+</body>
+</html>

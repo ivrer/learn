@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        function getArr(){
+
+           if(window.localStorage.getItem('tmp')){
+                console.log('bingon')
+           }else{
+                const tmp = []
+                for(i=0;i<=10;i++){
+                    tmp[i] = Math.floor(Math.random()*10)
+                }
+                window.localStorage.setItem('tmp',JSON.stringify(tmp))
+              
+           }
+
+            
+        }
+       getArr()
+      const arr = JSON.parse(window.localStorage.getItem('tmp'))
+      console.log(arr)
+       function getOrder(arr){
+        for(let i =0;i<=arr.length;i++){
+                for(let j=i;j<=arr.length;j++){
+                    
+                    if(arr[j]<arr[j-1]){
+                        const tmp = arr[j]
+                        arr[j] = arr[j-1]
+                        arr[j-1] = tmp
+
+                        if(arr[j]>arr[j+1]){
+                            const tmp2 = arr[j+1]
+                            arr[j+1] = arr[j]
+                            arr[j] = tmp2
+                         }
+                    }
+                 
+                }
+            
+            
+            }
+        console.log(arr)
+      
+       }
+       function getOrder2(arr){
+            let  i = 0
+            while(i<=arr.length){
+                for(let j=1;j<=arr.length;j++){
+                    if(arr[j]<arr[j-1]){
+                        const tmp = arr[j]
+                        arr[j] = arr[j-1]
+                        arr[j-1] = tmp
+
+                        if(arr[j]>arr[j+1]){
+                            const tmp2 = arr[j+1]
+
+                            arr[j+1] = arr[j]
+                            arr[j] = tmp2
+                        }
+                    }
+                    
+
+                }
+            i++
+            }
+              
+        console.log(arr)
+        window.localStorage.removeItem('tmp')
+      
+       }
+       getOrder(arr)
+       getOrder2(arr)
+       function quickOrder(arr,left,right){
+        for(let i = left||0 ;i<arr.length;i++){
+            console.log('first')
+          for(let j =right||arr.length;j>i;j--){
+            if(arr[0]<arr[i]){
+                if(arr[0]>arr[j]){
+                let tmp = arr[i]
+                arr[i] = arr[j]
+                arr[j] = tmp
+                }
+            } else if(){
+                
+            }
+            else if(arr[j]<arr[0]){
+                    const tmp = arr[i]
+                    arr[i] = arr[j]
+                    arr[j] = tmp
+                    quickOrder(arr,0,arr.length-1)
+                }
+
+
+                
+            }
+          }
+          console.log(arr)
+        }
+      
+       
+       function swag(argu1,argu2){
+        let tmp = argu1
+        argu1 = argu2
+        argu2 = tmp
+       }
+      quickOrder([35,6,3,5,7,4,2,9,10])
+     </script>
+</body>
+</html>

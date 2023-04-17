@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .acticle{
+            display: flex;
+            flex-flow: row-reverse;
+            align-items: center;
+           
+            
+        }
+        /* .acticle a{
+           
+        }
+        .acticle a:nth-of-type(3){
+            
+            align-self: baseline;
+        } */
+        .acticle a:nth-of-type(4){
+            order:-1;
+
+        }
+        .a{
+            height: 50px;
+            position: relative ;
+            border: 1px solid black;
+            margin-left: 20px;
+        }
+      .c{  
+           width: 20px;
+           height: 20px;
+           background-color: black;
+           border-radius: 10px;
+           position: absolute;
+           left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <button>zheishie</button>
+     <div class="acticle">
+        <a href="">1Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi cum assumenda veritatis. Dicta adipisci qui dolorem vero ea. Voluptatum aliquid modi tempore, ut minus debitis inventore iure et porro. Autem inventore recusandae ratione repellat dolorem temporibus deserunt repellendus fugiat perferendis corrupti iste eum est ipsam consequuntur magnam ipsa impedit vitae ipsum laborum sunt enim, eaque minima. Sequi eligendi laborum repellat saepe quidem, exercitationem distinctio minima hic ex iusto, at qui autem magni veniam repudiandae cumque voluptas expedita itaque nobis praesentium? Iste temporibus ea consectetur ad magni assumenda beatae, id eaque doloribus tenetur sed, perferendis commodi quam, hic eum voluptatibus adipisci?</a>
+        <a href="">2Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, voluptas esse perspiciatis ut deleniti nemo laudantium dolorem unde suscipit ex animi sint vitae iure quos. Blanditiis, libero soluta aliquid temporibus, doloribus quae, et earum deleniti amet repellendus eaque illo ipsum quia maiores eius labore dolorum architecto consequatur cum animi. Distinctio non saepe qui, repellendus modi debitis temporibus maiores optio voluptatum adipisci fugit quis accusamus, quo nam beatae molestiae vel totam id! Quaerat expedita reiciendis atque necessitatibus veniam vitae voluptatibus? Officiis eius rem asperiores, quidem mollitia in fuga ipsum error, sint illum, voluptates porro omnis cupiditate ipsa odit doloribus dolorum animi.</a>
+        <a href="">3Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eligendi nulla qui eos? Iure, itaque suscipit. Earum repellendus sapiente veritatis commodi a eveniet debitis voluptates, doloribus animi sunt totam unde nulla esse eum provident minima optio labore qui reiciendis necessitatibus! Ea qui hic non deserunt. Placeat facilis tempore debitis nam quae nulla vitae, omnis aut voluptates quia animi non commodi suscipit nobis consectetur consequatur maxime, quod voluptas ad quam. Dolorem voluptatum esse non. Velit, quia ipsum obcaecati dolor mollitia recusandae delectus cumque architecto in asperiores cupiditate quod, iste tenetur consequuntur et possimus facilis error ut eum assumenda esse, officia dolores.</a>
+        <a href="">4Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum illo minima neque doloremque, aspernatur numquam distinctio exercitationem optio magni. Voluptates doloribus fuga ut pariatur provident. Sunt mollitia reprehenderit dolores facere odio alias nemo assumenda amet ducimus maxime velit culpa consequatur illum ipsa voluptas aliquid explicabo necessitatibus minima sequi, quasi consectetur fuga perspiciatis soluta harum! Officiis distinctio quasi saepe omnis vero placeat cum? Iure praesentium, nostrum odit quis laborum illo magnam ipsum aspernatur laboriosam quaerat necessitatibus officiis atque recusandae totam, ducimus eligendi fugiat ipsam accusantium fuga nobis consequatur odio, dignissimos cum. Repellendus quia hic dolorem excepturi possimus cumque, harum molestiae dolores.</a>
+     </div>
+     <div style="overflow: hidden;">
+        <img src="./npm关联图1.png" alt="" 
+       srcset="
+       /星河.jpg 1080w,
+       /npm关联图1.png 500w"
+     >
+     </div> -->
+
+
+     <div class="a">
+        <div class="b">
+            <div class="c"></div>
+        </div>
+     </div>
+    <script>
+    //     document.querySelector('button').addEventListener('click',function(event){
+    //         const e = event ||window.event
+    //        e.preventDefault
+    //        e.stopPropagation
+    //        console.log(e)
+    //     })
+
+    //   class person  {
+    //     constructor(){
+
+    //     this.name = "tom"
+    //     this.age= 14
+        
+    //     }
+    
+    //     speak () {
+    //         console.log("children")
+    //     }
+        
+    //   }
+      
+    //   const obj = new person()
+    //   console.log(person.prototype)
+    //   console.log(obj._proto_);
+    //   console.log(obj.children);
+
+    // console.log('tom'.split("").reverse().join(''))
+     /**this*/
+    //  function a(params){
+    //     params
+    //     console.log("a",this)
+    //     function b(){
+    //         console.log("b",this)
+    //     }
+    //     b()
+        
+    //  }
+    //  function k(){
+    //     console.log("ke",this)
+    //  }
+    // const c = {q:'tom',w:{e:"jack",f:function d (){
+    //     console.log("c",this)
+    // }}}
+
+    // a()
+    // a(k())
+
+    // c.w.f()
+    //  const  a= document.querySelector('.a')
+    //  const c = document.querySelector('.c')
+   
+     
+    //  const  flag = true
+    //  c.onmousemove= function(e){
+
+        
+    //   const d = e.pageX-a.offsetLeft -10
+    //   console.log(d);
+    //   c.style.left = d + "px"
+        
+    //  }
+
+    function* iterArr(arr) {            //迭代器返回一个迭代器对象
+  if (Array.isArray(arr)) {         // 内节点
+      for(let i=0; i < arr.length; i++) {
+          yield* iterArr(arr[i]);   // (*) 递归
+      }
+  } else {                          // 离开
+      yield arr;
+  }
+}
+// 使用 for-of 遍历：
+// var arr = ['a', ['b', 'c'], ['d', 'e']];
+// for(var x of iterArr(arr)) {
+//   console.log(x);               // a  b  c  d  e
+// }
+// 或者直接将迭代器展开：
+var arr = [ 'a', ['b',[ 'c', ['d', 'e']]]];
+var gen = iterArr(arr);
+console.log(gen)
+arr = [...gen];  
+console.log(arr)                      // ["a", "b", "c", "d", "e"]
+
+   
+   
+    </script>
+    
+</body>
+</html>

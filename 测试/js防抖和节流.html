@@ -1,0 +1,31 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="text">
+        <script>
+            const input = document.querySelector('input')
+            input.addEventListener('input',antiShake(demo,2000))
+            // 函数防抖 将多次操作变成一次（一段时间内的多次操作再最后结束时只会执行最后一次的函数）
+           
+            function antiShake(fn,wait){
+                let timeOut = null
+                return args =>{
+                    if(timeOut) clearTimeout(timeOut)
+                    timeOut = setTimeout(fn,wait,args);
+                }
+
+            }
+            function demo(target){
+                console.log('我已输入数据')
+                console.log(target)
+            }
+           //节流 一定时间内只调用一次函数适用于高频的监听事件 {再该时间内或是该函数执行期间，不会再次调用该函数}
+        </script>
+    </body>
+    </html>

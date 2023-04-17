@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const time = new Date()
+        const focusTime= time.getTime() + 3600000
+
+       
+        
+        function miaosha(time){
+           const curTime = Date.now()
+           const timeSpan = time - curTime
+           
+           const hours = Math.floor(timeSpan/3600000)
+
+          
+           const minutes = Math.floor( (timeSpan - hours*360000)/60000)
+           const seconds = Math.floor((timeSpan - hours*360000-minutes*60000)/1000)
+           console.log(curTime,hours,minutes,seconds);
+        }
+        
+     
+     
+    </script>
+    
+</body>
+</html>

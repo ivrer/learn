@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //存储内容大小一般支持为5MB大小（
+        localStorage.setItem(key,value) //value如果不是string则会自动调用toString方法所以对象最好先永JSON。stringify（）
+        localStorage.getItem(key)  //读取为没有时，则返回为null JSON。parse返回也是null
+        localStorage.clear
+        localStorage.removeItem(key)
+        sessionStorage//api和local一样，但作用时关闭浏览器时则会清空缓存  
+    </script>
+</body>
+</html>

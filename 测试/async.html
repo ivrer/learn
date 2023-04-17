@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function foo() {
+            const p1 = new Promise((resolve) => setTimeout(() => resolve("1"), 1000));
+            const p2 = new Promise((_, reject) => setTimeout(() => reject("2"), 500));
+            const results = [await p1, await p2]; // 不推荐使用这种方式，请使用 Promise.all 或者 Promise.allSettled
+            }
+       
+            foo().catch((err) => {console.log(err)}); // 捕捉所有的错误...
+            //先打印uncaught in promise 然后再是2
+            async function foo2() {
+            const p1 =  await new Promise((resolve) => setTimeout(() => resolve("1"), 1000));
+            const p2 = await new Promise((_, reject) => setTimeout(() => reject("2"), 500));
+           
+            }
+       
+            foo2().catch((err) => {console.log(err)}); // 捕捉所有的错误...
+            //先打印uncaught in promise 然后再是2
+
+    </script>
+</body>
+</html>

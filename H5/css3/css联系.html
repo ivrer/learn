@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .boxa{
+    width: 500px;
+    height: 500px;
+    background-color: red;
+  }
+  .boxa.click{
+     background-color: blue;
+  }
+</style>
+<body>
+  <div class="boxa">
+    boxa
+  </div>
+  <button class="myButton">
+  </button>
+  <input type="text" value="1" class="myInput">
+
+  <script>
+    const boxa = document.querySelector('.boxa')
+    const myInput  = document .querySelector('.myInput')
+    const myButton = document.querySelector('.myButton')
+    
+    boxa.onclick = function(){
+      boxa.classList.toggle("click")
+    }
+
+    myButton.onclick = function(){
+     let valueNumber=  parseInt(myInput.getAttribute("value")) + 1
+     let  value = valueNumber.toString()
+
+     myInput.setAttribute("value",value)
+
+     let arr = []
+     console.log(arr.constructor.toString());
+    }
+  </script>
+</body>
+</html>

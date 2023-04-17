@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        } */
+        .container{
+            width:1080px ; 
+            margin: 0 auto;
+            background-color: aliceblue;
+   
+        }
+        .container>.floorHd{
+            height: 60px;
+
+        }
+        .container > .floorHd > h3{
+            width: 150px;
+            margin: 0 auto;
+        }
+        .container .floorTi{
+
+            background-color: white;
+        }
+        .container .floorTi .feed-tab{
+            width: 1080px;
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            
+        }
+        .container .floorTi .feed-tab li{
+            display: inline-block;
+            margin-left: 40px;
+        }
+        .container .container-goodsList{
+            background-color: white;
+        }
+        .container .container-goodsList ul {
+            width: 1080px;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container .container-goodsList ul li{
+            float: left;
+            margin: 10px;
+            width: 190px;
+            height: 270px;
+            background-color: aqua;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="floorHd">
+            <h3>为你推荐</h3>
+        </div>
+        <div class="floorTi">
+            <ul class="feed-tab">
+                <li>
+                    <div class="feed-tab-tittle">
+                        <span>精选</span>
+                    </div>
+                    <div class="feed-tab-desc">猜你喜欢</div>
+                </li>
+                <li>
+                    <div class="feed-tab-tittle">
+                        <span>智能先峰</span>
+                    </div>
+                    <div class="feed-tab-desc">大牌器城</div>
+                </li>
+                <li>
+                    <div class="feed-tab-tittle">
+                        <span>居家优品</span>
+                    </div>
+                    <div class="feed-tab-desc">品质生活</div>
+                </li>
+                <li>
+                    <div class="feed-tab-tittle">
+                        <span>超市百货</span>
+                    </div>
+                    <div class="feed-tab-desc"> 百货生鲜</div>
+                </li>
+            </ul>
+        </div>
+        <div class="container-goodsList">
+            <ul class="list clearfix">
+                <li class="list-item">sdasdas</li>
+                <li class="list-item">asdasdasd</li>
+                <li class="list-item"></li>
+                <li class="list-item"></li>
+                <li class="list-item"></li>
+                <li class="list-item"></li>
+                <li class="list-item"></li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>

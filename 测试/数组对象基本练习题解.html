@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function num(arr){
+            let add = 0
+         for(let i = 0;i<arr.length;i++){
+            
+            add = add + arr[i] 
+            
+         }
+         return console.log(add)     
+        }
+        num([1,2,3])
+        function numFilter(arr,num){
+           let tem = arr.filter((item)=> item!==num)
+           return console.log(tem)
+        }
+        numFilter([1,2,3,4,6,7,2,4,2],2)
+ 
+
+        const arr = ['tom']
+        'yom'.name = 'jack'
+        console.log('yom'.name)
+
+        const tmp = "list.jd.com/list.html?cat=737,794,798&ev=4155%5F128704&sort=sort_rank_asc&trans=1&JL=2_1_0#J_crumbsBar|教育电视||0"
+        function trimString(str=""){
+            const arr = str.split('|')
+            const href = arr[0]
+            const name = arr[1]
+            return {href,name}
+
+        }
+        console.log(trimString(tmp).href);
+       const ss = {}
+       
+       console.log(ss);
+
+       const arr2 = [1,2,3,4]
+       for(let key of arr2){
+        console.log(key);
+       }
+       for(let key of arr2){
+        console.log(arr2[key]);
+       }
+    </script>
+</body>
+</html>

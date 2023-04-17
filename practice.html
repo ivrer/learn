@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    .container{
+      width: 500px;
+      height: 600px;
+      background-color: blue;
+      margin: 0 auto;
+      overflow: scroll;
+    }
+    .a{
+      height: 300px;
+      background-color: red;
+      background-image: url(./星河.jpg);
+      background-size: cover;
+      user-select: none;
+      overflow: hidden;
+      position: relative;
+
+    }
+    .b{
+      height: 300px;
+      background-color: orange;
+    }
+    ul{
+      position: absolute;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="a">
+    <ul style="color:red;">
+      <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ipsum.</li>
+      <li>Facere consectetur nostrum cupiditate id nemo consequatur explicabo, illum praesentium?</li>
+      <li>Voluptatem et culpa eius ipsam. Facere, blanditiis! Quae, ex ea!</li>
+      <li>Excepturi ullam blanditiis ipsa sequi assumenda reiciendis delectus tempore perspiciatis.</li>
+      <li>Omnis sint magni consequuntur enim magnam fugiat quibusdam blanditiis nihil?</li>
+      <li>Porro ducimus quaerat sed harum ad ut corporis hic perspiciatis?</li>
+      <li>Sunt blanditiis architecto aperiam quo ut voluptas ab fugiat repellat!</li>
+    </ul>
+  </div>
+  <div class="b"></div> 
+</div>
+
+  
+</body>
+<script>
+
+  //拖拽改变视图大小
+  let box_a = document.querySelector('.a')
+  let box_b = document.querySelector('.b')
+  let ul = document.querySelector('ul')
+  
+  let fn_click = (e) => {
+    e = e ||window.event
+    window.preY = e.clientY
+    window.originHeight =  box_a.offsetHeight
+
+    box_a.addEventListener('mousemove',fn_pull )
+  }
+  let fn_loose = (e) => {
+    e = e ||window.event 
+    console.log('mouseup');
+    box_a.removeEventListener('mousemove',fn_pull)
+    box_a.style.height = originHeight +'px'  
+    ul.style.top = 0 +'px'
+
+  }
+
+  box_a.addEventListener('mousedown',fn_click)
+  box_a.addEventListener('mouseup',fn_loose)
+  box_a.addEventListener('mouseleave',() => {
+    box_a.removeEventListener('mousemove',fn_pull)
+  })
+
+  function fn_pull(e){ 
+
+      let curY = e.clientY
+      let distance = curY - preY
+      console.log(distance,curY,preY);
+      box_a.style.height = originHeight + distance +'px'  
+      ul.style.top = distance +'px'
+
+  }
+
+  let str = 'name.value'
+
+  let oriData = {
+    name:{
+      value:'jack'
+    }
+  }
+
+
+
+  console.log(  str.split('.').reduce((data,current) => {
+    return data[current]
+    
+  },oriData),'reduce');
+  //
+
+  function throttle(){
+    return function(){
+      console.log(this,'return this');
+    }
+  }
+  let one = throttle()
+  one()
+
+  
+
+
+ 
+
+  
+  
+</script>
+</html>

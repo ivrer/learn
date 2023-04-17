@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .boxa{
+            width: 1000px;
+            height: 500px;
+            background-color: red;
+            text-align: center;
+            /* 行盒的水平居中 */
+            position: relative;
+
+        }
+        .boxb{
+            width: 1000px;
+            height: 500px;
+            background-color: red;
+           
+            /* display: flex;
+            justify-content: center; 此为弹性布局的居中定位解决方式*/
+            /* position: relative; 1,2此方法用于绝对定位的夫元素*/
+
+
+            
+        }
+        .boxc{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin:  auto; 1此方法用于绝对定位的子元素*/
+            position: absolute;
+            left: 50%;
+           
+            
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 块级盒子居中 -->
+    1.给定宽度后可以更改margin
+    margin：0 auto；
+
+    <div class="boxa">
+        <p> atque consequuntur. Blanditiis, repellat?</p>
+        <br>
+        <a href="">zheshiyigejiandandege</a>
+    </div>
+    <div class="boxb">
+        <div class="boxc">asdasdasdads</div>
+    </div>
+</body>
+</html>

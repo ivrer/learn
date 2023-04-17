@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box" name="1231" id="idArea"></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+</body>
+<script src="/jQuery.js"></script>
+    //选择器
+   <script>
+    //获取页面标签，按照css语法来获取，最后以集合的形式(披着数组的对象，虽然在js中万物皆对象)返回元素
+    console.log(Object.prototype.toString.call([]))
+    console.log($('div')[0])
+    console.log($('.box'))
+    console.log($('div[name=1231]'))
+    console.log(Object.prototype.toString.call($('div[name=1231]')))
+    //以id选择返回结果和其他有所不同
+    console.log($('#idArea'))
+    //jquery自己的语法-对已有的选择器进行精确选择
+    /**
+     ：:first
+     ：:last
+     ：:eq（索引）
+     =>按照索引排列的第几个
+     =>从0开始
+     ：:odd/even
+    */
+   console.log($('ul>li'))
+   console.log($('ul>li:odd'))//js从0开始计数
+   console.log($('ul>li:nth-child(odd'))//css从1开始计数
+
+   //筛选器。外置精确选择（服务于链式编程-用于前后选择不同元素添加不同效果但处于同一行代码 懂？
+   /**
+    *：.first
+     ：.last
+     ：.eq（索引）
+     :.next()
+     :.nextAll()
+     :.nextUntil()获取后续直到选择器为止所有元素（不写参数）
+     ：.prev()上一个选择
+     ：.prevAll()
+     :.prevUntil()    
+     :.parent()
+     :.parents()
+     :.children()
+     :.children(选择器)该子元素所有符合选择的子元素
+     ：.sinblins()拿到该元素的所有兄弟元素
+     :.find()拿到后代元素中符合选择器的元素
+     ：。index()拿到该选择器的索引
+   */
+
+   //操作文本
+  /**
+   * .html()获取该元素的超文本内容，以字符串的形式返回，获取时拿到第一个元素的超文本内容，设置时写入设置所有元素的内容（完全覆盖式写入）===innerHtml
+   * .text()获取文本内容，字符串形式返回，隐示迭代==innerText
+   * .val()获取元素的value值，以字符串形式返回，获取第一个元素，隐示迭代。特点与上述一致
+  */
+
+  //操作元素类名
+  /**
+   * addClass()  ===classList
+   * removeClass()
+   * hasClass()得到布尔值
+   * toggleClas()原先有类名则替换，没有则添加
+  */
+  
+  //操作元素样式  .css() 
+  /**
+   * .css('width')获取一个样式值，不管行内还是非行内都能获取到
+   * 设置时元素.css('样式名'，‘样式值)-有隐示迭代
+  */
+
+  //jquery绑定事件
+  /**
+   * .on('事件类型'，事件处理函数)，隐式迭代 
+   * .on('事件类型'，选择器，事件处理函数)，起到事件委托的一样作用
+   * .on('事件类型'，复杂数据类型，事件处理函数)
+   * .on('事件类型'，选择器，数据，事件处理函数)
+   * .on({多个事件})
+   * .one()于on方法一致，事件只执行一次
+   * .off()解除事件绑定
+   * 元素集合.off(事件类型)
+   * 元素结合.off(事件类型，事件处理函数 )
+   * .triger()
+  */
+ /**
+  * 快捷绑定事件，一些常用事件直接封装成函数
+  * click()
+  * ...
+ */
+//jquery唯一特殊事件
+/*hover(移入处理函数，移出处理函数)，只写一个函数时，移入移出都触发
+
+
+
+
+//jquery的节点操作与原生js节点操作一样，创建节点，插入节点，删除节点，替换节点，克隆节点
+/**
+ * 1.创建节点
+ * +$(html结构)
+ * 语法为:$('<div>aaaaaa</div>')
+ * 2.插入节点
+ *   内部插入（父子关系插入）
+ *  append（）末尾
+ * appendTo() 末尾
+ * prepend()  最前面
+ * prependTo() 最前面
+ * 
+ * 外部插入(以兄弟关系的插入)
+ * after()
+ * insertAfter()
+ * before()
+ * inserBfore()
+ * 
+ * 
+ * 删除节点
+ * remove()
+ * empty()
+ * 
+ * 
+ * 替换节点，换下主语前后位置不同，使用语法不同
+ * replaceWith()
+ * replaceAll()
+ * 
+ * 克隆节点
+ * clone()
+ * 第一个参数默认是false，确定是否携带事件
+ * 第二个参数默认跟随第一个，表示后代是否携带事件
+*/
+
+
+//
+/**
+ * 操作元素属性
+ * 属性操作，原生属性，id，class，src
+ * 自定义属性，getAttribute()
+ * H5自定义属性，dataset    data-xxx
+ * 与此对应jquery也有三个获取和移除
+ * attr()  removeAttr() 一般用于自定义属性
+ * prop()  removeProp() 一般用于获取元素原生属性，设置自定义属性时不显示于代码中，存于元素身上，attr设置自定义属性拿不到
+ * data()  removeData() 获取data()和data-xxx设置的属性 ，设置时不会出现在标签上，存在身上，和prop一样能拿不显示，需要查找相应的空间，删除时无法删除原生data-xxx
+ * 
+*/
+//元素尺寸  当display为none时原生offsetWidth和clientWidth（获取不到，但jquery能拿到
+
+/**
+ * 1.width()and height()获取元素内容位置的尺寸
+ * 2.innerWidth()and innerHeight()===clientWidth 获取内容和padding尺寸
+ * 3.outerWidth()and outerHeight()获取内容，padding以及border尺寸
+*/
+//元素位置
+/**
+ * 1.offset()获取左上角的绝对坐标，返回值为对象，包含坐标信息，不能再链式编程
+ * 设置  元素集合。offset({top:,left:}) 添加相对定位 position：relative，父元素会带动子元素移动设置时需要考虑父子移动先后顺序
+ * 
+ * 2。position()只能读取，获得定位位置
+*/
+
+//动画，三个基础动画
+/**
+ * 1.show()
+ * 2.hide()
+ * 3.toggle()
+ * 这三个改变display的值
+ * 方法名（运动时间，运动曲线，回调函数）
+ * 
+ * 折叠动画
+ * 三种
+ * slideDown()
+ * slideUp()
+ * slideToggle()
+ * 方法名（运动时间，运动曲线，回调函数）
+ * 
+ * 渐隐式动画
+ * fadeIn()
+ * fadeOut()
+ * fadeToggle()
+ * fadeTo(时间，指定透明度，运动曲线，回调函数)
+ * 
+ * 综合动画
+ * animate({}，)  颜色相关属性，以及css的2d和3d动画效果运动不了
+ * 
+ * 语法{
+ * width：300，height：'400px'},1000,'liner',回调函数 
+ * 
+*/
+//停止动画
+
+/**
+ * stop()
+ * finish()
+ * 
+*/
+//jquery发送ajax
+/**
+ * $.get(地址，数据，回调函数，希望返回数据格式)
+ * $.post()
+ * $.ajax(option)
+ * option:请求配置信息，对象数据类型
+ * url:请求地址，必填
+ * async：是否异步，默认为异步true
+ * type/method：表示请求方式，默认为GET
+ * data：传递参数，字符串或是对象形式
+ * dataType：期望返回数据类型
+ * success(){}：接受函数，表示成功的回调函数
+ * error(xhr，info，err){}:失败回调函数，失败或是解析失败时会执行该函数
+ * timeOut:设置超时时间，达到设置时间未接受响应即取消请求执行error
+ * cache：是否缓存，get请求自主缓存，默认为不缓存false即给数据添加一个时间戳来避免缓存
+ * context：传递this指向
+*/
+//解决跨域代理
+/**
+ * 1.jsonp
+ * 将dataType书写为jsonp时，jsonp不主动缓存，默认为false
+ * jsonp：表示携带函数名的那个key，一般书写为cb（callBack
+ * jsonpCallback:表示你自定义的函数名，默认为jquery_版本号随机数_时间戳
+*/
+//全局钩子函数，即全局ajax函数
+/**
+ * ajaxStart()表再同一作用域下多个ajax请求的时候，第一个ajax请求之前，触发一次，发送之前，拿钩子函数挂载
+ * $(window).ajaxStart(function(){
+ * })
+ * ajaxSend()每一个请求发送后触发一次
+ * ajaxSuccess()每一个一个请求成功后触发一次
+ * ajaxError()根据jquery判断失败
+ * ajaxConplete()每一个请求完成时触发一次
+ * ajaxStop()同一个作用域下，最后一个ajax请求完成时触发一次
+*/
+//多库并存
+/**
+ * 解决多库时可能存在的变量冲突，jquery有noConflict（）来交出自有$,jquery的控制权
+ * $.noconflict(true),即交出$的控制权，传递为true即交出jquery的控制权，赋值为const $$= $.onConflict(true)即定义一个变量取代原先的jquery控制的控制变量
+*/
+//深浅拷贝
+/**
+ * $.extend(obj1,obj2,obj3)
+ * ->把第二个后面的对象一起放到对象1中，作为浅拷贝
+ * $.extend.(true,obj1,obj2,obj3),作为深拷贝
+*/
+//jquery的扩展方法
+/**
+ * $.extend({扩展的方法})
+ * 比如操作cookie的方法，需要自己封装 
+ * $.fn.extend(扩展的方法)，给原型扩展方法即$('选择器')。a() ===$.extend($.fn,{扩展的方法})
+*/
+//jquery的validate和pagination
+ 
+/***/
+
+
+
+   </script>
+
+
+</html>

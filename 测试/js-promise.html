@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        function myPromise(excutor){
+            let self = this;
+            self.status = 'pending'
+            self.onresolve =[]
+            self.onreject = []
+            console.log('999')
+        
+            function resolve(value){
+                
+                if(self.status ==='pending'){
+                    self.value = value
+                    self.status = 'done'
+                    console.log('10')
+                    self.onresolve.forEach(item=>{item(value)})
+                  
+                 
+                }
+            
+            }
+            function reject (value){
+                self.status = 'failed'
+                self.onreject.forEach(item=>item(value))
+            
+            }
+            excutor&&excutor(resolve,reject)
+        // if(self.status ==='pending'){
+        //     return new myPromise((resolve,reject)=>{
+        //         self.onresolve.forEach(()=>{
+        //         let x = onresolve(self.value)
+        //         x instanceof myPromise ? x.then((resolve,reject)) : resolve(x);
+
+        //         })
+               
+        //     })
+        // }
+          
+        
+        }
+        myPromise.prototype.then = function(onresolve,onreject){
+            typeof onresolve === 'function'?onresolve = onresolve:function(onresolve){resolve(onresolve)};
+            typeof onreject === 'function'?onreject = onreject:function(onreject){reject(onreject)};
+            if(this.status === 'pending'){
+               
+                this.onresolve.push(onresolve)
+            }
+            if(this.status === 'pending'){
+                this.onreject.push(onreject)
+            }
+            
+           
+        }
+       
+        let tem = new myPromise((resolve)=>{
+           console.log('111')
+            setTimeout(()=>{
+                resolve('222')
+            },2000)
+        }).then(data=>{console.log('444')})
+ 
+        console.log('000')
+
+        // let person = new Promise((resolve)=>{
+        //     console.log('promise的cgl')
+        //     resolve('resolve的值')
+        // }).then(data=>{console.log('then的值',data)})
+
+        // setTimeout(()=>{console.log('定时器cgl')},0)
+
+        // console.log('clg')
+       
+
+        // const name = 'name'
+        // const age = 12 
+
+        // const state = {name,age}
+        // console.log(state)
+       
+      
+
+
+      
+    </script> -->
+    <script>
+        let myPromise  = function myPromise(
+            fnc  //fnc函数 接受参数 resolve 和reject回调函数
+            ){
+                this.status = 'pending'
+                this.waitResolve = []
+                this.waitReject = []
+                let self  = this
+       
+            if(fnc instanceof Function){
+                fnc(resolve,reject)
+            }
+
+            function resolve(value){
+                self.params = value
+                self.waitResolve.map((item) => {
+                    item(self.params)
+                })
+
+                self.status= 'resolved' 
+    
+            }
+            function reject(){
+                this.value = value
+            }
+
+            return '3333'
+
+        }
+
+        myPromise.prototype.then = function then (
+            fulfill//成功的回调函数
+            ){
+                
+            //该处未作类型判断  
+           return new myPromise((
+            resolve,reject
+           ) => {
+            console.log(this,'return new');
+            let fulfillCallBack = ()=>{
+                let x = fulfill(this.params)
+                console.log(this.params,x,'返回结果');
+                resolve(x)
+             
+            }
+            this.waitResolve.push(fulfillCallBack)
+          
+           })
+  
+        }
+        let person = new myPromise((resolve,reject) => {
+            console.log('111');
+            console.log(this,'执行函数');
+            setTimeout((value) => {
+                resolve(value)
+            } ,3000,'222')
+        }).then((value) => {
+            console.log(value,'then first');
+            return '444'
+        }).then((value) => {
+            console.log(value,'second value');
+        })
+
+        
+
+        
+
+        
+
+
+    </script>
+</body>
+</html>

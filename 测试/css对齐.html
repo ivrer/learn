@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+        display: flex;
+       }
+        .center{
+            width: 600px;
+            height: 500px;
+            background-color: orange;
+            margin: auto;
+
+        }
+        .children{
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center" class="middle" >快速居中对齐
+        <div class="children">baohan</div>
+    </div>
+    <!-- 定位居中，弹性居中 -->
+
+    <script>
+        const center = document.querySelector('.center')
+        center.addEventListener('click',function(e){
+            console.log(e)
+            console.log(e.target.offsetWidth)
+            console.log('clientX:',e.clientX)
+            console.log('offsetX',e.offsetX)
+            console.log('pageX',e.pageX)
+            console.log('offsetWidth',e.target.offsetWidth)
+            console.log('clientWidth',e.target.offsetParent)
+        })
+        const children = document.querySelector('.children')
+        function goMove(e){
+         
+           children.style.transform = `translate(${e.clientX-243-50}px)`
+        }
+        children.addEventListener('pointerdown',function(e){
+            console.log('1')
+            children.onpointermove = goMove
+        })
+        children.addEventListener('pointerup',function(e){
+            children.onpointermove = null
+        })
+     
+    </script>
+</body>
+</html>

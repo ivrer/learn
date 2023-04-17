@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color: red;
+           
+        }
+        .box2{
+            width: 700px;
+            height: 700px;
+            background-color: yellow;
+            /* position: relative; */
+            left: 100px;
+            top:100px
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="box1">
+      <div class="box2"></div>
+    </div>
+    <input type="text" name="" id="container" >
+
+
+    <script>
+        const box1 = document.querySelector('.box1')
+        const box2 = document.querySelector('.box2')
+        box1.addEventListener('mousedown',function(event){
+            
+            box2.addEventListener('mousemove',getMove)
+        })
+       
+
+
+        function getMove(event){
+            let moveX = event.offsetX + event.target.offsetLeft- event.target.offsetWidth/2 
+            let moveY = event.offsetY + event.target.offsetTop- event.target.offsetHeight/2 
+       
+            if(moveX<= 0) moveX = 0
+            if(moveX>=box1.offsetWidth -event.target.offsetWidth) moveX = box1.offsetWidth -event.target.offsetWidth
+            if(moveY<= 0) moveY = 0
+            if(moveY>=box1.offsetHeight -event.target.offsetHeight) moveY = box1.offsetHeight -event.target.offsetHeight
+            box2.style.left = moveX + 'px'
+            box2.style.top = moveY + 'px'
+            
+          
+          }
+        
+        box1,addEventListener('mouseup',function(e){
+           box2.removeEventListener('mousemove',getMove)
+        })
+        const tmp = {value:12334}
+        const ipt = document.querySelector('#container')
+        Object.defineProperty(tmp,'value',{
+            get(){
+              
+            },
+            set(newValue){
+                // return tmp.value = 123
+            }
+        })
+        tmp.value = 1111
+        console.log(tmp.value)
+     
+    </script>
+</body>
+</html>

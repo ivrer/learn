@@ -1,0 +1,4 @@
+div{
+
+    pointer-events: none; /*不可作为事件对象。设置的事件无效*/
+}
