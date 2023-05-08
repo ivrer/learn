@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let getPoints = (arr) => {
+
+            console.log(arr.length,"1");
+            let temp = []
+            if(arr.length>1){
+                arr[0].map((item,index) => {
+                if(item==1){
+                    temp.push([index+4,-1])
+                }
+                })
+
+                arr[1].map((item,index) => {
+                if(item==1){
+                    temp.push([index+4,0])
+                }
+                })
+
+                console.log(arr.length,"2");
+                
+            }
+
+            if(arr.length==1){
+                arr.map((item,index) => {
+                if(item==1){
+                    temp.push([index+4,0])
+                }
+                })
+                console.log(arr.length,"3");
+            }
+            console.log(arr.length,"4");
+            return temp
+        }
+
+        let box_shape = [[1,1,0],[1,1,2]]
+
+        let arr = [[1,1,0],
+            [0,1,1]
+            ]
+
+        let firstName = "jack"
+
+        function getName(params){
+            return {
+                name:params
+            }
+        }
+        console.log(box_shape,box_shape.length,"box-sa");
+        console.log(getPoints(box_shape))
+        console.log(getPoints(box_shape));
+        console.log(getName(firstName),getName(firstName));
+
+
+
+        let count = {
+            0:0,
+            1:0,
+            2:0,
+            3:0,
+            4:0,
+            5:0
+        }
+
+        for(let i=0;i<10000;i++){
+            let number = ((Math.floor(Math.random(0,1)*10*0.5)))
+            count[number] = count[number] + 1
+        }
+
+        console.log(count);
+       let mySet = new Set([[1,0],[2,0],[1,0]])
+       mySet.delete([1,0])
+      
+       for(let value of mySet){
+        mySet.delete(value)
+       }
+       console.log(mySet,"check");
+
+       let arr1 = "1"
+       let arr2 = "1"
+       console.log(arr1==arr2);
+
+       let arr3 = [1,0]
+       let str1 = "1,0"
+       console.log(arr3.join(),typeof arr3.join(),arr3.join()==str1);
+
+
+       let arr6 = [1,2,3,4]
+
+       for(let value of arr6){
+            value = value +1
+       }
+       console.log(arr6,"1231");
+
+        function a (){
+            let b = {a:'a'}
+            fn(b)
+            console.log(b,"a中b");
+       }
+
+       function fn(b){
+        b = {c:"c"}
+        console.log(b,"fn中b");
+       }
+
+       a()
+    </script>
+</body>
+</html>

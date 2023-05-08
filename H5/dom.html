@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box" style="width: 100px;height: 100px;background-color: red;">aaaa</div>
+    <img src="/npm关联图1.png" alt="">
+    <script>
+        // 元素尺寸问题
+
+        // #region scroll大全
+            // element.scrollHeight/width 只读属性 表示一个元素内容高度，表示可滚动的总高度和宽度包含溢出高度
+            // element.scrollLeft/Top/ 可读可设置，表示元素向上或向左被卷去的高度像素数
+            // element.getBoundingClientRect() 返回元素大小及相对视口位置
+            //     {
+            //     "x": 566.4375,
+            //     "y": 308,
+            //     "width": 200,
+            //     "height": 43.20000076293945,
+            //     "top": 308,
+            //     "right": 766.4375,
+            //     "bottom": 351.20000076293945,
+            //     "left": 566.4375
+            //    } x,y为元素在视口的坐标位置 其余为各个边距离的大小，如bottom为底边至视口的距离，right为右边至y轴的距离
+            
+            //判断元素是否滚动到底
+            // Math.abs(element.scrollHeight - element.clientHeight - element.scrollTop) < 1
+            //通过滚动事件，可以判断元素是否进入可视区域或者文本内容是否已被读取
+            //控制元素滚动
+            //el.scroll(options)/el.scrollTo(option)/scrollBy(option) options={top:num,left:num,behavior:"smooth"/"instant"/"auto"}//平滑/立即/自动，自动计算确认
+            //el/scrollToView() //直接滚动到视图中
+        //#endregion
+
+        //#region offsetHeight offsetWidth offsetTop ....
+                //element.offsetHeight/width 获取元素尺寸高度包含边框
+                //element.offsetTop 返回元素外边框距离父元素顶部的距离，选着最接近定位的祖先元素，无则为body
+                //element.offsetParent 返回其定位的父元素
+        //事件位置
+        //pageX，pageY clientX，clientY，
+
+        //event pageX/Y 表示触发点至页面的坐标
+        //event.clentX/Y 表示触发点至视口的坐标
+        //event.offsetX/Y 表示点到目标节点的坐标
+        //event.movementX/Y 表示点离上一个坐标的差值，这个属性可以不在需要自己手动保存之前的坐标信息
+
+        //编程式创建事件或触发事件
+        //UI事件对象有 MouseEvent /KeyboardEvent/ ...
+        //可以建立自定义事件 new Event(“build)
+        //然后监听该事件，el.addEventListener("build",function(e){})
+        //手动触发 el.dispatchEvent("build")即目标元素触发相应事件
+    </script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        let $ = window.$
+        let el =  $(".box")[0]
+        let img = $("img")[0]
+        console.log(el);
+        console.group("元素尺寸")
+        console.log('$(".box")[0].getBoundingClientRect():', $(".box")[0].getBoundingClientRect())
+        console.log('el.getClientRect():', el.getClientRects())
+        console.groupEnd()
+
+        console.log(img,img.hasAttribute("requestFullScreen"),img.requestFullscreen());
+       
+    </script>
+</body>
+</html>

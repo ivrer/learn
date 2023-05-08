@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        .box-container{
+            width: 500px;
+            height: 500px;
+            margin: 0 auto; 
+        }
+        .box{
+            background-color: red;  
+        }
+        #myImage{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="box-container">
+        <canvas class="box" width="300" height="600">
+        </canvas>
+    </div>
+
+    <script>
+        let myCanvas = document.querySelector('.box')
+        let image= document.querySelector('#myImage')
+
+        let ctx = myCanvas.getContext('2d')
+
+        let firstImage = new Image()
+        let secondImage = new Image()
+
+        firstImage.src = './images/login2.jpg'
+        secondImage.src ='./images/shot1.jpg'
+
+        ctx.clearRect(0,0,300,600)
+
+        firstImage.onload = (e) => {
+            ctx.drawImage(firstImage,0,0,300,300)
+        }
+        secondImage.onload = (e) => {
+            ctx.drawImage(secondImage,0,300,300,300)
+            
+        }
+        ctx.save()
+
+        //鼠标移入重绘canvas
+        myCanvas.onmousemove = (e) => {
+             
+            e= e||window.event
+            let x = e.offsetX
+            let y = e.offsetY
+            //边界值判断
+            if(x<300&&y<300){
+                ctx.clearRect(0,0,300,600)
+                ctx.rotate(Math.PI/6)
+                ctx.drawImage(firstImage,0,0,300,300)
+                ctx.restore()           
+                ctx.drawImage(secondImage,0,300,300,300)
+                ctx.save()
+
+            }
+            if(x<300&&y>300){
+                ctx.clearRect(0,0,300,600)
+                ctx.translate(0,300)
+                ctx.rotate(-Math.PI/6)
+                ctx.drawImage(secondImage,0,0,300,300) 
+                ctx.restore()  
+                ctx.drawImage(firstImage,0,0,300,300)         
+                ctx.save()
+            }      
+        }
+        //鼠标移出复原canvas
+        myCanvas.onmouseout = () => {
+           ctx.restore()
+           ctx.clearRect(0,0,300,600) 
+           ctx.drawImage(firstImage,0,0,300,300)
+           ctx.drawImage(secondImage,0,300,300,300)
+           ctx.save()
+        }              
+    </script>
+</body>
+</html>
