@@ -1,118 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-
-        let getPoints = (arr) => {
-
-            console.log(arr.length,"1");
-            let temp = []
-            if(arr.length>1){
-                arr[0].map((item,index) => {
-                if(item==1){
-                    temp.push([index+4,-1])
-                }
-                })
-
-                arr[1].map((item,index) => {
-                if(item==1){
-                    temp.push([index+4,0])
-                }
-                })
-
-                console.log(arr.length,"2");
-                
-            }
-
-            if(arr.length==1){
-                arr.map((item,index) => {
-                if(item==1){
-                    temp.push([index+4,0])
-                }
-                })
-                console.log(arr.length,"3");
-            }
-            console.log(arr.length,"4");
-            return temp
-        }
-
-        let box_shape = [[1,1,0],[1,1,2]]
-
-        let arr = [[1,1,0],
-            [0,1,1]
-            ]
-
-        let firstName = "jack"
-
-        function getName(params){
-            return {
-                name:params
-            }
-        }
-        console.log(box_shape,box_shape.length,"box-sa");
-        console.log(getPoints(box_shape))
-        console.log(getPoints(box_shape));
-        console.log(getName(firstName),getName(firstName));
-
-
-
-        let count = {
-            0:0,
-            1:0,
-            2:0,
-            3:0,
-            4:0,
-            5:0
-        }
-
-        for(let i=0;i<10000;i++){
-            let number = ((Math.floor(Math.random(0,1)*10*0.5)))
-            count[number] = count[number] + 1
-        }
-
-        console.log(count);
-       let mySet = new Set([[1,0],[2,0],[1,0]])
-       mySet.delete([1,0])
-      
-       for(let value of mySet){
-        mySet.delete(value)
-       }
-       console.log(mySet,"check");
-
-       let arr1 = "1"
-       let arr2 = "1"
-       console.log(arr1==arr2);
-
-       let arr3 = [1,0]
-       let str1 = "1,0"
-       console.log(arr3.join(),typeof arr3.join(),arr3.join()==str1);
-
-
-       let arr6 = [1,2,3,4]
-
-       for(let value of arr6){
-            value = value +1
-       }
-       console.log(arr6,"1231");
-
-        function a (){
-            let b = {a:'a'}
-            fn(b)
-            console.log(b,"a中b");
-       }
-
-       function fn(b){
-        b = {c:"c"}
-        console.log(b,"fn中b");
-       }
-
-       a()
-    </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codefun</title>
+    <link rel="stylesheet" href="../../index.css" />
+    <link rel="stylesheet" href="./zhifutai.css" />
+    <script type="text/javascript" src="./zhifutai.js"></script>
+  </head>
+  <body>
+    <div class="flex-col page">
+      <div class="flex-col">
+        <div class="flex-row justify-between relative section">
+          <div class="flex-row self-center section_2 space-x-12">
+            <img
+              class="self-center image_2"
+              src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645b49835a7e3f0310091d09/645b49a654fe000011607d63/16837043988902571517.png"
+            />
+            <div class="flex-col items-start self-start group space-y-6">
+              <span class="font_1 text">laputa-ivere</span>
+              <span class="font_2">大会员有效期至2023-11-20</span>
+            </div>
+          </div>
+          <span class="self-start font_2 text_2">积分兑换|激活码开通</span>
+          <img
+            class="image pos"
+            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645b49835a7e3f0310091d09/645b49a654fe000011607d63/16837043988896569019.png"
+          />
+        </div>
+        <div class="flex-row equal-division">
+          <div class="flex-col items-center equal-division-item space-y-10">
+            <span class="font_1 text_3">大会员套餐</span>
+            <span class="font_3 text_5">电脑/手机/ipad上可用</span>
+          </div>
+          <div class="flex-col equal-division-item_2 space-y-10">
+            <span class="self-center font_1 text_4">超级大会员套餐</span>
+            <span class="self-end font_3 text_6">TVTV/电脑/手机/ipad上可用</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-row equal-division_2 space-x-12">
+        <div class="flex-col equal-division-item_3 space-y-22">
+          <span class="self-start font_4">连续包年</span>
+          <div class="flex-col items-center space-y-20">
+            <span class="font_5">￥148</span>
+            <span class="font_6">￥233</span>
+          </div>
+        </div>
+        <div class="flex-col items-start equal-division-item_4 space-y-22">
+          <div class="flex-col relative group_2 view space-y-6">
+            <div class="flex-col justify-start items-center self-end badge"><span class="font_2">8折</span></div>
+            <span class="self-start font_4">连续包年</span>
+          </div>
+          <div class="flex-col group_2 space-y-20">
+            <span class="self-start font_5">￥148</span>
+            <span class="self-center font_6 text_7">￥233</span>
+          </div>
+        </div>
+        <div class="flex-col items-start equal-division-item_4 space-y-22">
+          <div class="flex-col relative group_2 view space-y-6">
+            <div class="flex-col justify-start items-center self-end badge"><span class="font_2">8折</span></div>
+            <span class="self-start font_4">连续包年</span>
+          </div>
+          <div class="flex-col group_2 space-y-20">
+            <span class="self-start font_5">￥148</span>
+            <span class="self-center font_6 text_7">￥233</span>
+          </div>
+        </div>
+        <div class="flex-col items-start equal-division-item_4 space-y-22">
+          <div class="flex-col relative group_2 view space-y-6">
+            <div class="flex-col justify-start items-center self-end badge"><span class="font_2">8折</span></div>
+            <span class="self-start font_4">连续包年</span>
+          </div>
+          <div class="flex-col group_2 space-y-20">
+            <span class="self-start font_5">￥148</span>
+            <span class="self-center font_6 text_7">￥233</span>
+          </div>
+        </div>
+        <div class="flex-col equal-division-item_5 space-y-22">
+          <span class="self-start font_4">连续包年</span>
+          <div class="flex-col items-center space-y-20">
+            <span class="font_5">￥148</span>
+            <span class="font_6">￥233</span>
+          </div>
+        </div>
+        <div class="flex-col equal-division-item_5 space-y-22">
+          <span class="self-start font_4">连续包年</span>
+          <div class="flex-col items-center space-y-20">
+            <span class="font_5">￥148</span>
+            <span class="font_6">￥233</span>
+          </div>
+        </div>
+      </div>
+      <span class="self-start font_7 text_8">每年按148元自动续费，可随时取消</span>
+      <div class="flex-row items-center self-start group_3 space-x-14">
+        <span class="font_7 text_10">选择代金卷：</span>
+        <div class="flex-row items-center section_3 space-x-344">
+          <span class="font_7 text_9">无代金卷可用</span>
+          <img
+            class="shrink-0 image_3"
+            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/645b49835a7e3f0310091d09/645b49a654fe000011607d63/16837043988911766425.png"
+          />
+        </div>
+      </div>
+      <span class="self-start font_5 text_11">按钮</span>
+    </div>
+  </body>
 </html>
